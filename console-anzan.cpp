@@ -65,7 +65,6 @@ int main(int argc,char** argv)
   double SLEEP_=3;
   int NUMBERS=5;
   int DIGITS=3;
-  long long prev=0;
   long long mod=1;
 
   bool first=true;
@@ -96,7 +95,7 @@ int main(int argc,char** argv)
       }
     }
 
-    while(r == prev && first == false)
+    while(numbers.size() > 0 && r == numbers[numbers.size()-1])
     {
       r=rand()%mod;
 
@@ -109,14 +108,11 @@ int main(int argc,char** argv)
       }
     }
 
-    first=false;
-
     if(DIGITS > 1 && r < mod/10)
     {
       r+=(mod/10);
     }
 
-    prev=r;
     numbers.push_back(r);
     sum+=r;
   }
